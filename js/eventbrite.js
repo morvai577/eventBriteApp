@@ -1,35 +1,35 @@
 class EventBrite {
-    // Constructor when instanciate
-    constructor() {
-        this.auth_token = 'RC3CQCCAK7KELN625KIM';
-        this.orderby = 'date';
-    }
+     // Constructor when instanciate
+     constructor() {
+          this.auth_token = 'RC3CQCCAK7KELN625KIM';
+          this.orderby = 'date';
+     }
 
-    // Get the Events from API
+     // Get the Events from API
 
-    async queryAPI(eventName, category) {
-        const eventsResponse = await fetch(`https://www.eventbriteapi.com/v3/events/search/?q=${eventName}&sort_by=${this.orderby}&categories=${category}&token=${this.auth_token}`);
+     async queryAPI(eventName, category) {
+          const eventsResponse = await fetch(`https://www.eventbriteapi.com/v3/events/search/?q=${eventName}&sort_by=${this.orderby}&categories=${category}&token=${this.auth_token}`);
 
-        // Wait for response and return as json
+          // Wait for response and return as json
 
-        const events = await eventsResponse.json();
+          const events = await eventsResponse.json();
 
-        return {
-            events
-        }
-    }
+          return {
+               events
+          }
+     }
 
 
-    // Get categories from API
-    async getCategoriesAPI() {
-        // Query the API
-        const categoriesResponse = await fetch(`https://www.eventbriteapi.com/v3/categories/?token=${this.auth_token}`);
+     // Get categories from API
+     async getCategoriesAPI() {
+          // Query the API
+          const categoriesResponse = await fetch(`https://www.eventbriteapi.com/v3/categories/?token=${this.auth_token}`);
 
-        // Hold for the response and then return as json
-        const categories = await categoriesResponse.json();
+          // Hold for the response and then return as json
+          const categories = await categoriesResponse.json();
 
-        return {
-            categories
-        }
-    }
+          return {
+               categories
+          }
+     }
 }
